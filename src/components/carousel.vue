@@ -36,9 +36,16 @@ export default {
   data() {
     return {
       currentOffset: 0,
-      windowSize: 3,
-      paginationFactor: 180,
+      windowSize: 10,
+      paginationFactor: 150,
       items: [
+        { image: require ("../assets/pic1.png"),},
+        { image: require ("../assets/pic2.png"), },
+        { image: require( "../assets/pic3.png"), },
+        { image: require ("../assets/pic4.png"),  },
+        { image: require ("../assets/pic1.png"), },
+        { image: require ("../assets/pic2.png"), },
+        { image: require ("../assets/pic4.png"), },
         { image: require ("../assets/pic1.png"),},
         { image: require ("../assets/pic2.png"), },
         { image: require( "../assets/pic3.png"), },
