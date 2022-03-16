@@ -1,4 +1,5 @@
 <template>
+<div class="footer">
   <div class="card-carousel-wrapper">
     <div
       class="card-carousel--nav__left"
@@ -14,7 +15,7 @@
           }"
         >
           <div class="card-carousel--card" v-for="item in items" :key="item">
-            <img src="https://picsum.photos/seed/picsum/200/200" />
+            <img id="brand" :src="item.image"/>
           </div>
         </div>
       </div>
@@ -25,6 +26,7 @@
       :disabled="atEndOfList"
     ></div>
   </div>
+</div>
 </template>
 
 <script>
@@ -35,15 +37,15 @@ export default {
     return {
       currentOffset: 0,
       windowSize: 3,
-      paginationFactor: 220,
+      paginationFactor: 180,
       items: [
-        { name: "Kin Khao", tag: ["Thai"] },
-        { name: "Jū-Ni", tag: ["Sushi", "Japanese", "$$$$"] },
-        { name: "Delfina", tag: ["Pizza", "Casual"] },
-        { name: "San Tung", tag: ["Chinese", "$$"] },
-        { name: "Anchor Oyster Bar", tag: ["Seafood", "Cioppino"] },
-        { name: "Locanda", tag: ["Italian"] },
-        { name: "Garden Creamery", tag: ["Ice cream"] },
+        { image: require ("../assets/pic1.png"),},
+        { image: require ("../assets/pic2.png"), },
+        { image: require( "../assets/pic3.png"), },
+        { image: require ("../assets/pic4.png"),  },
+        { image: require ("../assets/pic1.png"), },
+        { image: require ("../assets/pic2.png"), },
+        { image: require ("../assets/pic4.png"), },
       ],
     };
   },
@@ -71,20 +73,35 @@ export default {
 </script>
 
 <style scoped>
+#brand {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    background: #9F4F1F19;
+}
+
 .card-carousel-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px 0 40px;
+  margin: 20px 0 20px;
   color: #666a73;
 }
 .card-carousel {
   display: flex;
   justify-content: center;
-  width: 640px;
+  width: 90vw;
 }
 .card-carousel--overflow-container {
   overflow: hidden;
+  width: inherit;
 }
 .card-carousel--nav__left,
 .card-carousel--nav__right {
