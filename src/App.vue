@@ -1,4 +1,5 @@
 <template>
+<div class="filler"></div>
   <carouselComponent/>
   
 </template>
@@ -21,5 +22,12 @@ export default {
 }
 body {
   margin:0;
+}
+
+.filler {
+  background-image: url("../src/assets/back.jpg");
+  background-size: cover;
+  height: 77vh;
+  width: 100vw;
 }
 </style>

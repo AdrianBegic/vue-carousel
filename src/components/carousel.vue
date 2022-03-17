@@ -36,8 +36,8 @@ export default {
   data() {
     return {
       currentOffset: 0,
-      windowSize: 10,
-      paginationFactor: 150,
+      windowSize: 9,
+      paginationFactor: 170,
       items: [
         { image: require ("../assets/pic1.png"),},
         { image: require ("../assets/pic2.png"), },
@@ -58,13 +58,12 @@ export default {
   },
   computed: {
     atEndOfList() {
-      return (
-        this.currentOffset <=
-        this.paginationFactor * -1 * (this.items.length - this.windowSize)
-      );
+      return this.currentOffset <= (this.paginationFactor * -1) * (this.items.length - this.windowSize);
+      
     },
     atHeadOfList() {
       return this.currentOffset === 0;
+    
     },
   },
   methods: {
@@ -91,7 +90,7 @@ export default {
     height: auto;
     position: fixed;
     bottom: 0;
-    background: #9F4F1F19;
+    background: #000;
 }
 
 .card-carousel-wrapper {
@@ -107,7 +106,7 @@ export default {
   width: 90vw;
 }
 .card-carousel--overflow-container {
-  overflow: hidden;
+  overflow-x: scroll;
   width: inherit;
 }
 .card-carousel--nav__left,
@@ -125,8 +124,7 @@ export default {
 }
 .card-carousel--nav__left[disabled],
 .card-carousel--nav__right[disabled] {
-  opacity: 0.2;
-  border-color: black;
+  border-color: #fff;
 }
 .card-carousel--nav__left {
   transform: rotate(-135deg);
