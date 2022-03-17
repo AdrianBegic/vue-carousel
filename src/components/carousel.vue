@@ -1,32 +1,32 @@
 <template>
-<div class="footer">
-  <div class="card-carousel-wrapper">
-    <div
-      class="card-carousel--nav__left"
-      @click="moveCarousel(-1)"
-      :disabled="atHeadOfList"
-    ></div>
-    <div class="card-carousel">
-      <div class="card-carousel--overflow-container">
-        <div
-          class="card-carousel-cards"
-          :style="{
-            transform: 'translateX' + '(' + currentOffset + 'px' + ')',
-          }"
-        >
-          <div class="card-carousel--card" v-for="item in items" :key="item">
-            <img id="brand" :src="item.image"/>
+  <div class="footer">
+    <div class="card-carousel-wrapper">
+      <div
+        class="card-carousel--nav__left"
+        @click="moveCarousel(-1)"
+        :disabled="atHeadOfList"
+      ></div>
+      <div class="card-carousel">
+        <div class="card-carousel--overflow-container" >
+          <div
+            class="card-carousel-cards"
+            :style="{
+              transform: 'translateX' + '(' + currentOffset + 'px' + ')',
+            }"
+          >
+            <div class="card-carousel--card" v-for="item in items" :key="item">
+              <img id="brand" :src="item.image" />
+            </div>
           </div>
         </div>
       </div>
+      <div
+        class="card-carousel--nav__right"
+        @click="moveCarousel(1)"
+        :disabled="atEndOfList"
+      ></div>
     </div>
-    <div
-      class="card-carousel--nav__right"
-      @click="moveCarousel(1)"
-      :disabled="atEndOfList"
-    ></div>
   </div>
-</div>
 </template>
 
 <script>
@@ -39,31 +39,32 @@ export default {
       windowSize: 9,
       paginationFactor: 170,
       items: [
-        { image: require ("../assets/pic1.png"),},
-        { image: require ("../assets/pic2.png"), },
-        { image: require( "../assets/pic3.png"), },
-        { image: require ("../assets/pic4.png"),  },
-        { image: require ("../assets/pic1.png"), },
-        { image: require ("../assets/pic2.png"), },
-        { image: require ("../assets/pic4.png"), },
-        { image: require ("../assets/pic1.png"),},
-        { image: require ("../assets/pic2.png"), },
-        { image: require( "../assets/pic3.png"), },
-        { image: require ("../assets/pic4.png"),  },
-        { image: require ("../assets/pic1.png"), },
-        { image: require ("../assets/pic2.png"), },
-        { image: require ("../assets/pic4.png"), },
+        { image: require("../assets/pic1.png") },
+        { image: require("../assets/pic2.png") },
+        { image: require("../assets/pic3.png") },
+        { image: require("../assets/pic4.png") },
+        { image: require("../assets/pic1.png") },
+        { image: require("../assets/pic2.png") },
+        { image: require("../assets/pic4.png") },
+        { image: require("../assets/pic1.png") },
+        { image: require("../assets/pic2.png") },
+        { image: require("../assets/pic3.png") },
+        { image: require("../assets/pic4.png") },
+        { image: require("../assets/pic1.png") },
+        { image: require("../assets/pic2.png") },
+        { image: require("../assets/pic4.png") },
       ],
     };
   },
   computed: {
     atEndOfList() {
-      return this.currentOffset <= (this.paginationFactor * -1) * (this.items.length - this.windowSize);
-      
+      return (
+        this.currentOffset <=
+        this.paginationFactor * -1 * (this.items.length - this.windowSize)
+      );
     },
     atHeadOfList() {
       return this.currentOffset === 0;
-    
     },
   },
   methods: {
@@ -74,23 +75,23 @@ export default {
         this.currentOffset += this.paginationFactor;
       }
     },
+
+    
   },
 };
 </script>
 
 <style scoped>
 #brand {
-    width: 100px;
-    height: 100px;
-    padding: 10px;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
 }
 
 .footer {
-    width: 100%;
-    height: auto;
-    position: fixed;
-    bottom: 0;
-    background: #000;
+  width: 100%;
+  position: fixed;
+  background: #000;
 }
 
 .card-carousel-wrapper {
@@ -175,7 +176,7 @@ export default {
 .card-carousel-cards .card-carousel--card--footer p {
   padding: 3px 0;
   margin: 0;
-  margin-bottom: 2px;
+  margin-top: 2px;
   font-size: 19px;
   font-weight: 500;
   color: #2c3e50;
