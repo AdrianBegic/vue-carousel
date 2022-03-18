@@ -1,5 +1,7 @@
 <template>
-<div class="filler"></div>
+<div class="filler">
+<img  id="board" src="../src/assets/board.png"  />
+</div>
   <carouselComponent/>
   
 </template>
@@ -29,5 +31,10 @@ body {
   background-size: cover;
   height: 77vh;
   width: 100vw;
+}
+
+#board {
+  display: block;
+  margin: 0 auto;
 }
 </style>

@@ -1,30 +1,24 @@
 <template>
   <div class="footer">
     <div class="card-carousel-wrapper">
-      <div
-        class="card-carousel--nav__left"
-        @click="moveCarousel(-1)"
-        :disabled="atHeadOfList"
-      ></div>
       <div class="card-carousel">
-        <div class="card-carousel--overflow-container" >
+        <div class="card-carousel--overflow-container">
           <div
             class="card-carousel-cards"
             :style="{
               transform: 'translateX' + '(' + currentOffset + 'px' + ')',
             }"
           >
-            <div class="card-carousel--card" v-for="item in items" :key="item">
-              <img id="brand" :src="item.image" />
+            <div
+              class="card-carousel--card"
+              v-for="item in items"
+              :key="item.id"
+            >
+              <img id="brand" :src="item.image" :title="item.alt"/>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="card-carousel--nav__right"
-        @click="moveCarousel(1)"
-        :disabled="atEndOfList"
-      ></div>
     </div>
   </div>
 </template>
@@ -36,23 +30,21 @@ export default {
   data() {
     return {
       currentOffset: 0,
-      windowSize: 9,
+      windowSize: 12,
       paginationFactor: 170,
       items: [
-        { image: require("../assets/pic1.png") },
-        { image: require("../assets/pic2.png") },
-        { image: require("../assets/pic3.png") },
-        { image: require("../assets/pic4.png") },
-        { image: require("../assets/pic1.png") },
-        { image: require("../assets/pic2.png") },
-        { image: require("../assets/pic4.png") },
-        { image: require("../assets/pic1.png") },
-        { image: require("../assets/pic2.png") },
-        { image: require("../assets/pic3.png") },
-        { image: require("../assets/pic4.png") },
-        { image: require("../assets/pic1.png") },
-        { image: require("../assets/pic2.png") },
-        { image: require("../assets/pic4.png") },
+        { image: require("../assets/back.png"), alt: "BACK" },
+        { image: require("../assets/menu.png"),  alt: "BOARDS"},
+        { image: require("../assets/pic0.png"),  alt: "ALL BOARDS"},
+        { image: require("../assets/pic1.png"),  alt: "GIRL"},
+        { image: require("../assets/pic2.png"),  alt: "BAKER"},
+        { image: require("../assets/pic3.png"),  alt: "REAL"},
+        { image: require("../assets/pic4.png"),  alt: "SANTA CRUZ"},
+        { image: require("../assets/pic5.png"),  alt: "ELEMENT"},
+        { image: require("../assets/pic6.png"),  alt: "ENJOI"},
+        { image: require("../assets/pic7.png"),  alt: "ALIEN"},
+        { image: require("../assets/pic8.png"),  alt: "TOY MACHINE"},
+        { image: require("../assets/pic9.png"),  alt: "PLAN B"},
       ],
     };
   },
@@ -66,17 +58,6 @@ export default {
     atHeadOfList() {
       return this.currentOffset === 0;
     },
-  },
-  methods: {
-    moveCarousel(direction) {
-      if (direction === 1 && !this.atEndOfList) {
-        this.currentOffset -= this.paginationFactor;
-      } else if (direction === -1 && !this.atHeadOfList) {
-        this.currentOffset += this.paginationFactor;
-      }
-    },
-
-    
   },
 };
 </script>
